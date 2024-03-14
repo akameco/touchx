@@ -58,6 +58,8 @@ fn handle_file(file: &str) -> io::Result<()> {
         let source_data = fs::read(source_file_path)?;
         let mut file = File::create(file)?;
         file.write_all(&source_data)?;
+    } else {
+        File::create(file)?;
     }
 
     Ok(())
